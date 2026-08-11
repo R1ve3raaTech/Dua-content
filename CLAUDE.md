@@ -9,16 +9,15 @@ Landing de una sola página para Dúa, agencia de creación de contenido (reels,
 - Deploy en Vercel
 
 ## Alcance (importante, no salirse de esto)
-- *Una sola página* con scroll, navegación por anclas (no rutas múltiples tipo /contacto).
-- Sin animaciones complejas en esta fase — eso viene en un prompt aparte al final.
+- *Multi-página*: cada ítem del navbar es su propia ruta (decidido el 2026-08-10; reemplaza el alcance one-page original). El header es compartido vía `app/layout.tsx` y cada ruta monta su componente de sección de `components/sections/`.
 - Mobile-first: la mayoría de visitantes va a entrar desde Instagram en el celular.
 
-## Estructura de secciones (en orden)
-1. *Quiénes somos* — presentación de Dúa + una parte dedicada a las dos fundadoras (Stay y Titi)
-2. *Paquetes para marcas*
-3. *Paquetes para eventos*
-4. *Clientes / trabajos / recomendaciones* — usar placeholders, las fotos reales de clientas las envían después
-5. *Redes sociales / contacto / métodos de pago*
+## Estructura de páginas (en orden del navbar)
+1. `/` — *Quiénes somos* — presentación de Dúa + una parte dedicada a las dos fundadoras (Stay y Titi)
+2. `/paquetes-marcas` — *Paquetes para marcas*
+3. `/paquetes-eventos` — *Paquetes para eventos*
+4. `/clientes` — *Clientes / trabajos / recomendaciones* — usar placeholders, las fotos reales de clientas las envían después
+5. `/contacto` — *Redes sociales / contacto / métodos de pago*
 
 ## Identidad de marca (del Brand Book oficial — seguir esto, no inventar)
 

@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
@@ -8,17 +10,18 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "#quienes-somos", label: "Quiénes somos" },
-  { href: "#paquetes-marcas", label: "Paquetes para marcas" },
-  { href: "#paquetes-eventos", label: "Paquetes para eventos" },
-  { href: "#clientes", label: "Clientes" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "/", label: "Quiénes somos" },
+  { href: "/paquetes-marcas", label: "Paquetes para marcas" },
+  { href: "/paquetes-eventos", label: "Paquetes para eventos" },
+  { href: "/clientes", label: "Clientes" },
+  { href: "/contacto", label: "Contacto" },
 ];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const reduceMotion = useReducedMotion();
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -40,21 +43,25 @@ export default function Header() {
       )}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <a href="#quienes-somos" className="font-serif text-2xl font-bold text-cafe">
+        <Link href="/" className="font-serif text-2xl font-bold text-cafe">
           Dúa
-        </a>
+        </Link>
 
         {/* Menú desktop */}
         <nav className="hidden lg:block">
           <ul className="flex gap-6">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
-                  className="text-xs font-medium uppercase tracking-widest text-negro/80 transition-colors duration-200 hover:text-cobre"
+                  aria-current={pathname === link.href ? "page" : undefined}
+                  className={cn(
+                    "text-xs font-medium uppercase tracking-widest transition-colors duration-200 hover:text-cobre",
+                    pathname === link.href ? "text-cobre" : "text-negro/80"
+                  )}
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -89,13 +96,17 @@ export default function Header() {
             <ul className="flex flex-col">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
-                    className="block px-4 py-3 text-xs font-medium uppercase tracking-widest text-negro/80 transition-colors duration-200 hover:text-cobre sm:px-6"
+                    aria-current={pathname === link.href ? "page" : undefined}
+                    className={cn(
+                      "block px-4 py-3 text-xs font-medium uppercase tracking-widest transition-colors duration-200 hover:text-cobre sm:px-6",
+                      pathname === link.href ? "text-cobre" : "text-negro/80"
+                    )}
                     onClick={() => setMenuOpen(false)}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
