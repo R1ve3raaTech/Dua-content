@@ -52,3 +52,40 @@ html {
     scroll-behavior: auto;
   }
 }
+
+/* Scrollbar con la paleta de la marca (Firefox) */
+html {
+  scrollbar-color: #c58a58 #f3e7d0; /* thumb cobre, track crema */
+  scrollbar-width: thin;
+}
+
+/* Scrollbar con la paleta de la marca (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3e7d0; /* crema */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c58a58; /* cobre */
+  border-radius: 9999px;
+  border: 3px solid #f3e7d0; /* crea el "grosor" flotante sobre el track */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #8a5a2b; /* café al pasar el mouse */
+}
+
+/* Selección de texto con la paleta de la marca */
+::selection {
+  background-color: #c58a58; /* cobre */
+  color: #ffffff; /* blanco, mismo contraste que el botón primario */
+}
+
+::-moz-selection {
+  background-color: #c58a58;
+  color: #ffffff;
+}
