@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Tokens de shadcn/ui mapeados a la paleta Dúa */
+    --background: #f3e7d0; /* crema */
+    --foreground: #1c1c1c; /* negro */
+    --card: #ffffff;
+    --card-foreground: #1c1c1c;
+    --popover: #ffffff;
+    --popover-foreground: #1c1c1c;
+    --primary: #c58a58; /* cobre */
+    --primary-foreground: #ffffff;
+    --secondary: #8a5a2b; /* café */
+    --secondary-foreground: #ffffff;
+    --muted: #f3e7d0;
+    --muted-foreground: rgb(28 28 28 / 0.65);
+    --accent: #c58a58;
+    --accent-foreground: #ffffff;
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: rgb(138 90 43 / 0.25); /* café tenue para líneas */
+    --input: rgb(138 90 43 / 0.4);
+    --ring: #c58a58;
+    --radius: 0.625rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-serif;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Deja espacio para el header sticky al saltar a un ancla */
+  scroll-padding-top: 4.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
