@@ -17,7 +17,8 @@ Landing de una sola página para Dúa, agencia de creación de contenido (reels,
 2. `/paquetes-marcas` — *Paquetes para marcas*
 3. `/paquetes-eventos` — *Paquetes para eventos*
 4. `/clientes` — *Clientes / trabajos / recomendaciones* — usar placeholders, las fotos reales de clientas las envían después
-5. `/contacto` — *Redes sociales / contacto / métodos de pago*
+
+Además hay un *footer global* (`components/Footer.tsx`, montado en el layout, visible en todas las páginas) con: redes sociales (Instagram, WhatsApp) y métodos de pago. El formulario de contacto (nombre/email/mensaje) se eliminó el 2026-08-10 — el contacto va por redes/WhatsApp desde el footer.
 
 ## Identidad de marca (del Brand Book oficial — seguir esto, no inventar)
 
