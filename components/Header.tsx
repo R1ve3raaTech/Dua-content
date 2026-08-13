@@ -14,6 +14,7 @@ const navLinks = [
   { href: "/paquetes-marcas", label: "Paquetes para marcas" },
   { href: "/paquetes-eventos", label: "Paquetes para eventos" },
   { href: "/clientes", label: "Clientes" },
+  { href: "/equipo", label: "Nuestro equipo de trabajo" },
 ];
 
 export default function Header() {

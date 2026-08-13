@@ -12,14 +12,14 @@ const fundadoras: Fundadora[] = [
   {
     nombre: "Melany",
     rol: "Co-fundadora de Dúa",
-    imagen: "",
+    imagen: "/fundadoras/melany.jpg",
     descripcion:
       "Detrás de cada cámara hay una mirada, y la de Melany busca siempre el instante justo: esa mezcla de detalle y emoción que hace que un video se sienta real. Le apasiona la parte creativa de Dúa, desde la idea inicial hasta la edición final, y cree que la mejor forma de conectar con las personas es contando su historia con honestidad.",
   },
   {
     nombre: "Tiffany",
     rol: "Co-fundadora de Dúa",
-    imagen: "",
+    imagen: "/fundadoras/tiffany.jpg",
     descripcion:
       "Tiffany es quien le da estructura y estrategia a cada proyecto de Dúa, cuidando que cada pieza de contenido no solo se vea bien, sino que también cumpla su propósito. Cercana y empática por naturaleza, disfruta escuchar la historia de cada marca y cada persona antes de empezar a grabar, porque para ella todo buen contenido nace de una buena conversación.",
   },
