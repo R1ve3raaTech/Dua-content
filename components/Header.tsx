@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -43,8 +44,16 @@ export default function Header() {
       )}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="font-serif text-2xl font-bold text-cafe">
-          Dúa
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="/logo/dua-mark-navbar.png"
+            alt="Dúa"
+            width={40}
+            height={40}
+            className="h-10 w-10 rounded-full"
+            priority
+          />
+          <span className="font-serif text-2xl font-bold text-cafe">Dúa</span>
         </Link>
 
         {/* Menú desktop */}
