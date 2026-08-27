@@ -36,8 +36,8 @@ export default function HeroQuienesSomos() {
           </div>
         </RevealItem>
 
-        <RevealItem className="relative left-1/2 mt-12 w-screen -translate-x-1/2 sm:static sm:left-auto sm:mx-auto sm:w-full sm:max-w-2xl sm:translate-x-0">
-          <div className="flex flex-col sm:overflow-hidden sm:rounded-lg sm:border sm:border-cobre/30">
+        <RevealItem className="mt-12 w-full max-w-2xl">
+          <div className="flex flex-col overflow-hidden rounded-lg border border-cobre/30">
             <div className="aspect-[3/2] w-full">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
