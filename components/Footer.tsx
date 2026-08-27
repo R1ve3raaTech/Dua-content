@@ -130,7 +130,7 @@ export default function Footer() {
             Métodos de pago
           </h3>
           <p className="mt-4 text-sm leading-relaxed text-crema/70">
-            SINPE Móvil — número por confirmar.
+            SINPE o transferencia bancaria.
           </p>
         </div>
       </div>
