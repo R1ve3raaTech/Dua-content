@@ -13,25 +13,66 @@ const fotosEquipo = [
   },
 ];
 
-const herramientas = [
+const categoriasHerramientas = [
   {
-    nombre: "Osmo Pocket 4",
-    detalle: "Para crear tomas dinámicas, fluidas y contenido vertical.",
+    categoria: "Cámaras y dispositivos",
+    items: [
+      {
+        nombre: "Osmo Pocket 4",
+        detalle:
+          "Para crear tomas dinámicas y fluidas, ideales para contenido vertical y piezas pensadas para redes sociales.",
+      },
+      {
+        nombre: "iPhone 17 Pro Max",
+        detalle:
+          "Para producciones con gran nivel de detalle y una imagen de alta calidad, manteniendo la naturalidad del contenido digital.",
+      },
+      {
+        nombre: "iPhone 16 Pro Max",
+        detalle:
+          "Ideal para crear contenido ágil, natural y optimizado para redes sociales.",
+      },
+      {
+        nombre: "iPad",
+        detalle:
+          "Herramienta de apoyo para la planificación, organización y producción del contenido.",
+      },
+    ],
   },
   {
-    nombre: "iPhone 16 Pro Max",
-    detalle:
-      "Ideal para contenido ágil, natural y optimizado para redes sociales.",
+    categoria: "Iluminación",
+    items: [
+      {
+        nombre: "Godox LED 170II",
+        detalle:
+          "Iluminación continua para conseguir una imagen uniforme, favorecedora y profesional durante las grabaciones.",
+      },
+      {
+        nombre: "MA5R Litemons RGB LED Light",
+        detalle:
+          "Luz RGB portátil que nos permite complementar la iluminación, crear ambientes y añadir efectos de color según el concepto de cada producción.",
+      },
+    ],
   },
   {
-    nombre: "iPad",
-    detalle:
-      "Apoyo durante la planificación, organización y producción del contenido.",
+    categoria: "Audio",
+    items: [
+      {
+        nombre: "DJI Mic 3",
+        detalle:
+          "Sistema de micrófono inalámbrico para capturar audio claro y definido en diálogos, presentaciones y contenido frente a cámara.",
+      },
+    ],
   },
   {
-    nombre: "Fondo blanco para set de grabación",
-    detalle:
-      "Disponible para crear un espacio limpio, profesional y versátil cuando el contenido lo requiera.",
+    categoria: "Set de grabación",
+    items: [
+      {
+        nombre: "Fondo blanco",
+        detalle:
+          "Disponible para crear un espacio visual limpio, profesional y versátil cuando el concepto del contenido lo requiera.",
+      },
+    ],
   },
 ];
 
@@ -92,19 +133,28 @@ export default function NuestroEquipo() {
             <p className="mt-8 text-xs font-semibold uppercase tracking-[0.2em] text-cobre">
               Trabajamos con
             </p>
-            <ul className="mt-4 space-y-4">
-              {herramientas.map((item) => (
-                <li key={item.nombre} className="flex gap-3">
-                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-cobre" />
-                  <p className="text-sm leading-relaxed text-negro/75 md:text-base">
-                    <span className="font-semibold text-negro">
-                      {item.nombre}
-                    </span>{" "}
-                    — {item.detalle}
-                  </p>
-                </li>
+            <div className="mt-6 space-y-8">
+              {categoriasHerramientas.map((grupo) => (
+                <div key={grupo.categoria}>
+                  <h4 className="text-lg font-semibold text-negro">
+                    {grupo.categoria}
+                  </h4>
+                  <ul className="mt-3 space-y-4">
+                    {grupo.items.map((item) => (
+                      <li key={item.nombre} className="flex gap-3">
+                        <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-cobre" />
+                        <p className="text-sm leading-relaxed text-negro/75 md:text-base">
+                          <span className="font-semibold text-negro">
+                            {item.nombre}
+                          </span>{" "}
+                          — {item.detalle}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </Reveal>
 

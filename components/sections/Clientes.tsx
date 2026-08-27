@@ -36,11 +36,11 @@ const resenas: Resena[] = [
 // Cuando tengas los clips reales, solo se agrega el link/URL en "src" de cada uno.
 const videos: VideoItem[] = [
   { src: "/videos/demo-1.mp4" },
-  { src: "" },
-  { src: "" },
-  { src: "" },
-  { src: "" },
-  { src: "" },
+  { src: "/videos/demo-2.mp4" },
+  { src: "/videos/demo-3.mp4" },
+  { src: "/videos/demo-4.mp4" },
+  { src: "/videos/demo-5.mp4" },
+  { src: "/videos/demo-6.mp4" },
 ];
 
 export default function Clientes() {
