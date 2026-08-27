@@ -15,7 +15,8 @@ const navLinks = [
   { href: "/paquetes-marcas", label: "Paquetes para marcas" },
   { href: "/paquetes-eventos", label: "Paquetes para eventos" },
   { href: "/clientes", label: "Clientes" },
-  { href: "/equipo", label: "Nuestro equipo de trabajo" },
+  { href: "/resultados", label: "Resultados" },
+  { href: "/equipo", label: "Nuestro equipo" },
 ];
 
 export default function Header() {
@@ -57,15 +58,15 @@ export default function Header() {
         </Link>
 
         {/* Menú desktop */}
-        <nav className="hidden lg:block">
-          <ul className="flex gap-6">
+        <nav className="hidden xl:block">
+          <ul className="flex flex-nowrap gap-5">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   aria-current={pathname === link.href ? "page" : undefined}
                   className={cn(
-                    "text-xs font-medium uppercase tracking-widest transition-colors duration-200 hover:text-cobre",
+                    "whitespace-nowrap text-xs font-medium uppercase tracking-widest transition-colors duration-200 hover:text-cobre",
                     pathname === link.href ? "text-cobre" : "text-negro/80"
                   )}
                 >
@@ -81,7 +82,7 @@ export default function Header() {
           type="button"
           variant="outline"
           size="icon"
-          className="lg:hidden"
+          className="xl:hidden"
           onClick={() => setMenuOpen((open) => !open)}
           aria-expanded={menuOpen}
           aria-controls="menu-mobile"
@@ -96,7 +97,7 @@ export default function Header() {
         {menuOpen && (
           <motion.nav
             id="menu-mobile"
-            className="border-t border-cobre/30 bg-blanco lg:hidden"
+            className="border-t border-cobre/30 bg-blanco xl:hidden"
             initial={{ opacity: 0, y: reduceMotion ? 0 : -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: reduceMotion ? 0 : -8 }}
