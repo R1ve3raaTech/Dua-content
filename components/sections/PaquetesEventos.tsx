@@ -318,19 +318,6 @@ export default function PaquetesEventos() {
             </div>
           </div>
         </Reveal>
-
-        {/* Cierre de marca */}
-        <Reveal>
-          <div className="mt-20 rounded-xl bg-negro px-6 py-14 text-center text-crema">
-            <p className="font-serif text-3xl tracking-wide sm:text-4xl">
-              DÚA
-            </p>
-            <div className="mx-auto mt-4 h-px w-16 bg-cobre" />
-            <p className="mx-auto mt-6 max-w-md text-sm italic leading-relaxed text-crema/80 sm:text-base">
-              Contamos tu historia. Conectamos con lo que importa.
-            </p>
-          </div>
-        </Reveal>
       </div>
     </section>
   );
