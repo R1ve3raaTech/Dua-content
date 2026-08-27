@@ -1,26 +1,98 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Volume2, VolumeX } from "lucide-react";
 
 export type CoverflowItem = {
   src: string;
   alt: string;
+  tipo?: "foto" | "video";
 };
+
+function CoverflowMedia({
+  item,
+  isActive,
+  priority,
+}: {
+  item: CoverflowItem;
+  isActive: boolean;
+  priority: boolean;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (isActive) {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [isActive]);
+
+  const toggleMute = (e: MouseEvent) => {
+    e.stopPropagation();
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setMuted(video.muted);
+  };
+
+  if (item.tipo === "video") {
+    return (
+      <div className="relative h-full w-full">
+        <video
+          ref={videoRef}
+          src={item.src}
+          muted={muted}
+          loop
+          playsInline
+          className="h-full w-full object-cover"
+        />
+        {isActive && (
+          <button
+            type="button"
+            aria-label={muted ? "Activar sonido" : "Silenciar"}
+            onClick={toggleMute}
+            className="absolute bottom-3 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-negro/60 text-blanco backdrop-blur-sm transition hover:bg-negro/80"
+          >
+            {muted ? (
+              <VolumeX className="h-4 w-4" />
+            ) : (
+              <Volume2 className="h-4 w-4" />
+            )}
+          </button>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <Image
+      src={item.src}
+      alt={item.alt}
+      fill
+      sizes="(min-width: 1024px) 293px, (min-width: 640px) 191px, 146px"
+      className="object-cover"
+      priority={priority}
+    />
+  );
+}
 
 type Layout = {
   maxAbs: number; // cuántas tarjetas se muestran a cada lado de la activa
-  cardWidth: number; // ancho de tarjeta, en % del contenedor
   translateStep: number; // desplazamiento por posición, en % del ancho de tarjeta
   scaleStep: number; // reducción de escala por cada posición de distancia
 };
 
 // Móvil: solo activa + 1 a cada lado (evita amontonar 5 tarjetas en poco ancho).
 // Tablet/PC: activa + 2 a cada lado, como en la referencia.
-const MOBILE: Layout = { maxAbs: 1, cardWidth: 74, translateStep: 62, scaleStep: 0.24 };
-const TABLET: Layout = { maxAbs: 2, cardWidth: 46, translateStep: 58, scaleStep: 0.2 };
-const DESKTOP: Layout = { maxAbs: 2, cardWidth: 32, translateStep: 55, scaleStep: 0.19 };
+const MOBILE: Layout = { maxAbs: 1, translateStep: 62, scaleStep: 0.24 };
+const TABLET: Layout = { maxAbs: 2, translateStep: 58, scaleStep: 0.2 };
+const DESKTOP: Layout = { maxAbs: 2, translateStep: 55, scaleStep: 0.19 };
 
 function useResponsiveLayout(): Layout {
   const [layout, setLayout] = useState<Layout>(DESKTOP);
@@ -49,14 +121,14 @@ function useResponsiveLayout(): Layout {
 
 export function CoverflowCarousel({ items }: { items: CoverflowItem[] }) {
   const [active, setActive] = useState(0);
-  const { maxAbs, cardWidth, translateStep, scaleStep } = useResponsiveLayout();
+  const { maxAbs, translateStep, scaleStep } = useResponsiveLayout();
   const count = items.length;
 
   const go = (dir: 1 | -1) => setActive((prev) => (prev + dir + count) % count);
 
   return (
     <div className="w-full">
-      <div className="relative h-[220px] overflow-hidden sm:h-[300px] md:h-[360px] lg:h-[420px]">
+      <div className="relative h-[260px] overflow-hidden sm:h-[340px] md:h-[440px] lg:h-[520px]">
         {items.map((item, index) => {
           // Desplazamiento respecto a la tarjeta activa, tomando el camino más corto del loop
           let offset = index - active;
@@ -69,31 +141,33 @@ export function CoverflowCarousel({ items }: { items: CoverflowItem[] }) {
           const opacity = offset === 0 ? 1 : abs === 1 ? 0.9 : 0.45;
 
           return (
-            <button
+            <div
               key={item.src}
-              type="button"
+              role="button"
               onClick={() => setActive(index)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setActive(index);
+                }
+              }}
               aria-label={item.alt}
               aria-hidden={!visible}
               tabIndex={visible ? 0 : -1}
-              className="absolute left-1/2 top-1/2 h-full max-w-[360px] -translate-y-1/2 overflow-hidden rounded-2xl shadow-lg ring-1 ring-negro/5 transition-[transform,opacity] duration-500 ease-out"
+              className="absolute left-1/2 top-1/2 aspect-[9/16] h-full -translate-y-1/2 cursor-pointer overflow-hidden rounded-2xl shadow-lg ring-1 ring-negro/5 transition-[transform,opacity] duration-500 ease-out"
               style={{
-                width: `${cardWidth}%`,
                 transform: `translate(-50%, -50%) translateX(${offset * translateStep}%) scale(${scale})`,
                 opacity: visible ? opacity : 0,
                 zIndex: 10 - abs,
                 pointerEvents: visible ? "auto" : "none",
               }}
             >
-              <Image
-                src={item.src}
-                alt={item.alt}
-                fill
-                sizes="(min-width: 1024px) 360px, (min-width: 640px) 320px, 74vw"
-                className="object-cover"
+              <CoverflowMedia
+                item={item}
+                isActive={offset === 0}
                 priority={offset === 0}
               />
-            </button>
+            </div>
           );
         })}
 

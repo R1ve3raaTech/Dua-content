@@ -4,12 +4,12 @@ import { CoverflowCarousel, type CoverflowItem } from "@/components/CoverflowCar
 // Dummy: cuando lleguen las fotos reales de resultados/trabajos entregados,
 // solo se reemplaza este array (src + alt), el carrusel no cambia.
 const resultados: CoverflowItem[] = [
-  { src: "/quienes-somos/hero.jpg", alt: "Resultado de contenido Dúa" },
+  { src: "/videos/resultado-1.mp4", alt: "Resultado de contenido Dúa", tipo: "video" },
   { src: "/fundadoras/tiffany.jpg", alt: "Resultado de contenido Dúa" },
-  { src: "/quienes-somos/foto-1.jpg", alt: "Resultado de contenido Dúa" },
-  { src: "/equipo/herramientas.jpg", alt: "Resultado de contenido Dúa" },
-  { src: "/quienes-somos/foto-2.jpg", alt: "Resultado de contenido Dúa" },
-  { src: "/fundadoras/melany.jpg", alt: "Resultado de contenido Dúa" },
+  { src: "/videos/resultado-2.mp4", alt: "Resultado de contenido Dúa", tipo: "video" },
+  { src: "/videos/resultado-3.mp4", alt: "Resultado de contenido Dúa", tipo: "video" },
+  { src: "/videos/resultado-4.mp4", alt: "Resultado de contenido Dúa", tipo: "video" },
+  { src: "/videos/resultado-5.mp4", alt: "Resultado de contenido Dúa", tipo: "video" },
 ];
 
 export default function Resultados() {
