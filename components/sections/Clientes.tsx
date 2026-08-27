@@ -1,34 +1,27 @@
-import { Quote } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
+import { Reveal } from "@/components/motion/Reveal";
 import { VideoCarousel, type VideoItem } from "@/components/VideoCarousel";
+import { ReviewCarousel, type ReviewItem } from "@/components/ReviewCarousel";
 
-type Resena = {
-  nombre: string;
-  comentario: string;
-  captura: string;
-};
-
-// Datos dummy: cuando lleguen las capturas y comentarios reales de las clientas,
+// Datos dummy: cuando lleguen las fotos y comentarios reales de las clientas,
 // solo se reemplaza este array, la estructura de tarjetas no cambia.
-const resenas: Resena[] = [
+const resenas: ReviewItem[] = [
   {
     nombre: "Camila Ugalde",
     comentario:
       "Sé que gracias a ustedes y al trabajo que hacen, mi marca personal va a hacer click con muchísimas personas y todo será increíble.",
-    captura: "",
+    foto: "",
   },
   {
     nombre: "Fymnails.cr",
     comentario:
       "Había soñado con este tipo de contenido toda mi vida. Que nivel 🔥🔥 logró plasmar todo, que detalle, que cuidado me encantaaaaaaaaaa",
-    captura: "",
+    foto: "",
   },
   {
     nombre: "Nombre de la clienta",
     comentario:
       "Aquí va el comentario o reseña real de la clienta sobre su experiencia trabajando con Dúa.",
-    captura: "",
+    foto: "",
   },
 ];
 
@@ -78,38 +71,11 @@ export default function Clientes() {
           </div>
         </Reveal>
 
-        <RevealGroup className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {resenas.map((resena, index) => (
-            <RevealItem key={`${resena.nombre}-${index}`}>
-              <Card className="h-full bg-crema transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-md">
-                <CardContent className="p-6">
-                  {/* Placeholder de captura de pantalla mientras no hay una real */}
-                  <div className="flex h-48 items-center justify-center rounded-md border border-cobre/30 bg-blanco">
-                    {resena.captura ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={resena.captura}
-                        alt={`Captura de reseña de ${resena.nombre}`}
-                        className="h-full w-full rounded-md object-cover"
-                      />
-                    ) : (
-                      <span className="text-xs uppercase tracking-widest text-negro/40">
-                        Captura
-                      </span>
-                    )}
-                  </div>
-                  <Quote className="mt-4 h-5 w-5 text-cobre" />
-                  <p className="mt-2 text-sm italic leading-relaxed text-negro/80">
-                    {resena.comentario}
-                  </p>
-                  <p className="mt-3 text-sm font-semibold text-negro">
-                    {resena.nombre}
-                  </p>
-                </CardContent>
-              </Card>
-            </RevealItem>
-          ))}
-        </RevealGroup>
+        <Reveal>
+          <div className="mt-8">
+            <ReviewCarousel items={resenas} />
+          </div>
+        </Reveal>
       </div>
     </section>
   );
