@@ -75,7 +75,7 @@ function CoverflowMedia({
       src={item.src}
       alt={item.alt}
       fill
-      sizes="(min-width: 1024px) 293px, (min-width: 640px) 191px, 146px"
+      sizes="(min-width: 1024px) 293px, (min-width: 640px) 191px, 180px"
       className="object-cover"
       priority={priority}
     />
@@ -128,7 +128,7 @@ export function CoverflowCarousel({ items }: { items: CoverflowItem[] }) {
 
   return (
     <div className="w-full">
-      <div className="relative h-[260px] overflow-hidden sm:h-[340px] md:h-[440px] lg:h-[520px]">
+      <div className="relative h-[320px] overflow-hidden sm:h-[340px] md:h-[440px] lg:h-[520px]">
         {items.map((item, index) => {
           // Desplazamiento respecto a la tarjeta activa, tomando el camino más corto del loop
           let offset = index - active;

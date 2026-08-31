@@ -116,10 +116,10 @@ export function VideoCarousel({ items }: { items: VideoItem[] }) {
         {items.map((item, index) => (
           <div
             key={index}
-            className="w-[72%] shrink-0 snap-center sm:w-[45%] md:w-[32%] lg:w-[23%]"
+            className="w-[80%] shrink-0 snap-center sm:w-[45%] md:w-[32%] lg:w-[23%]"
           >
             {/* Marco estilo iPhone */}
-            <div className="relative mx-auto aspect-[9/19.5] w-full max-w-[240px] rounded-[2.4rem] border-[6px] border-negro bg-negro p-1.5 shadow-lg ring-1 ring-cobre/20">
+            <div className="relative mx-auto aspect-[9/19.5] w-full max-w-[280px] rounded-[2.4rem] border-[6px] border-negro bg-negro p-1.5 shadow-lg ring-1 ring-cobre/20 sm:max-w-[240px]">
               {/* Botones laterales */}
               <span className="absolute -left-[7px] top-[22%] h-6 w-[6px] rounded-full bg-negro" />
               <span className="absolute -left-[7px] top-[30%] h-10 w-[6px] rounded-full bg-negro" />
