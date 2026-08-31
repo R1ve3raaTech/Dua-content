@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { ChevronLeft, ChevronRight, Play, Volume2, VolumeX } from "lucide-react";
 
+import { posterDeVideo } from "@/lib/utils";
+
 export type VideoItem = {
   src?: string; // URL del video; vacío muestra un placeholder
 };
@@ -35,6 +37,7 @@ function ReelVideo({ src }: { src: string }) {
       <video
         ref={videoRef}
         src={src}
+        poster={posterDeVideo(src)}
         playsInline
         muted={muted}
         preload="none"

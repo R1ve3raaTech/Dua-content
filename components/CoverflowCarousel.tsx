@@ -4,6 +4,8 @@ import { useEffect, useRef, useState, type MouseEvent } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Volume2, VolumeX } from "lucide-react";
 
+import { posterDeVideo } from "@/lib/utils";
+
 export type CoverflowItem = {
   src: string;
   alt: string;
@@ -47,6 +49,7 @@ function CoverflowMedia({
         <video
           ref={videoRef}
           src={item.src}
+          poster={posterDeVideo(item.src)}
           muted={muted}
           loop
           playsInline
