@@ -9,19 +9,19 @@ const resenas: ReviewItem[] = [
     nombre: "Camila Ugalde",
     comentario:
       "Sé que gracias a ustedes y al trabajo que hacen, mi marca personal va a hacer click con muchísimas personas y todo será increíble.",
-    foto: "",
+    foto: "/resenas/clienta-1.jpg",
   },
   {
     nombre: "Fymnails.cr",
     comentario:
-      "Había soñado con este tipo de contenido toda mi vida. Que nivel 🔥🔥 logró plasmar todo, que detalle, que cuidado me encantaaaaaaaaaa",
+      "Lo mejor que le pasó a mi negocio fue haberlas encontrado. He crecido mucho en redes gracias a ustedes, quería mostrarle a mi público mi servicio conservando siempre la esencia de alto valor que me caracteriza y lo entendieron todo desde un inicio, gracias por trabajar con tanto amor, empeño y profesionalismo. Para mí son las mejores 🔥👏",
     foto: "",
   },
   {
     nombre: "Nombre de la clienta",
     comentario:
       "Aquí va el comentario o reseña real de la clienta sobre su experiencia trabajando con Dúa.",
-    foto: "",
+    foto: "/resenas/clienta-3.jpg",
   },
 ];
 

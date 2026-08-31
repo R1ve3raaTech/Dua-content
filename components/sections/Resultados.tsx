@@ -5,7 +5,7 @@ import { CoverflowCarousel, type CoverflowItem } from "@/components/CoverflowCar
 // solo se reemplaza este array (src + alt), el carrusel no cambia.
 const resultados: CoverflowItem[] = [
   { src: "/videos/resultado-1.mp4", alt: "Resultado de contenido Dúa", tipo: "video" },
-  { src: "/fundadoras/tiffany.jpg", alt: "Resultado de contenido Dúa" },
+  { src: "/videos/resultado-6.mp4", alt: "Resultado de contenido Dúa", tipo: "video" },
   { src: "/videos/resultado-2.mp4", alt: "Resultado de contenido Dúa", tipo: "video" },
   { src: "/videos/resultado-3.mp4", alt: "Resultado de contenido Dúa", tipo: "video" },
   { src: "/videos/resultado-4.mp4", alt: "Resultado de contenido Dúa", tipo: "video" },

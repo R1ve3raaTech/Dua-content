@@ -16,13 +16,13 @@ function Avatar({ nombre, foto }: { nombre: string; foto?: string }) {
       <img
         src={foto}
         alt={nombre}
-        className="h-12 w-12 rounded-full object-cover"
+        className="h-20 w-20 rounded-full object-cover"
       />
     );
   }
   const inicial = nombre.trim().charAt(0).toUpperCase() || "?";
   return (
-    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-cobre/15 text-base font-semibold text-cobre">
+    <span className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-cobre/15 text-2xl font-semibold text-cobre">
       {inicial}
     </span>
   );
