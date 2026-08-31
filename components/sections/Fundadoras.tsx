@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 
 type Fundadora = {
@@ -47,13 +48,14 @@ export default function Fundadoras() {
             >
               <RevealItem className="w-full md:w-1/2">
                 {/* Marco para la foto profesional; placeholder mientras no hay foto real */}
-                <div className="mx-auto flex aspect-[4/5] w-full max-w-sm items-center justify-center rounded-lg border border-cobre/30 bg-blanco">
+                <div className="relative mx-auto flex aspect-[4/5] w-full max-w-sm items-center justify-center rounded-lg border border-cobre/30 bg-blanco">
                   {fundadora.imagen ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
+                    <Image
                       src={fundadora.imagen}
                       alt={fundadora.nombre}
-                      className="h-full w-full rounded-lg object-cover"
+                      fill
+                      sizes="(min-width: 768px) 384px, 90vw"
+                      className="rounded-lg object-cover"
                     />
                   ) : (
                     <span className="text-xs uppercase tracking-widest text-negro/40">

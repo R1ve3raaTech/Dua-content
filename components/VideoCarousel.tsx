@@ -37,6 +37,7 @@ function ReelVideo({ src }: { src: string }) {
         src={src}
         playsInline
         muted={muted}
+        preload="none"
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
         className="h-full w-full object-cover"
@@ -66,119 +67,108 @@ function ReelVideo({ src }: { src: string }) {
 
 export function VideoCarousel({ items }: { items: VideoItem[] }) {
   const trackRef = useRef<HTMLDivElement>(null);
-  const [activePage, setActivePage] = useState(0);
-  const [pageCount, setPageCount] = useState(1);
+  const [active, setActive] = useState(0);
+  const [offset, setOffset] = useState(0);
 
-  // La cantidad de "páginas" depende de cuántos videos caben visibles a la
-  // vez (varía según el ancho de pantalla), no de la cantidad total de videos.
-  const computePages = () => {
+  // Cada tarjeta solo avanza cuando se presiona una flecha o un punto; no
+  // hay swipe/drag nativo (el track usa overflow-hidden), evita que el
+  // scroll se sienta "pegado" al arrastrar sobre varios videos.
+  const updateOffset = (index: number) => {
     const track = trackRef.current;
-    const firstCard = track?.children[0] as HTMLElement | undefined;
-    if (!track || !firstCard || track.clientWidth === 0) return;
-
-    const gap = 24; // debe coincidir con gap-6
-    const visible = Math.max(
-      1,
-      Math.round((track.clientWidth + gap) / (firstCard.offsetWidth + gap))
-    );
-    setPageCount(Math.max(1, Math.ceil(items.length / visible)));
+    const target = track?.children[index] as HTMLElement | undefined;
+    if (!target) return;
+    setOffset(target.offsetLeft);
   };
 
   useEffect(() => {
-    computePages();
-    window.addEventListener("resize", computePages);
-    return () => window.removeEventListener("resize", computePages);
+    updateOffset(active);
+    const onResize = () => updateOffset(active);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [items.length]);
+  }, [active, items.length]);
 
-  const scrollToPage = (page: number) => {
-    const track = trackRef.current;
-    if (!track) return;
-    const clamped = Math.max(0, Math.min(page, pageCount - 1));
-    track.scrollTo({ left: clamped * track.clientWidth, behavior: "smooth" });
-    setActivePage(clamped);
-  };
-
-  const handleScroll = () => {
-    const track = trackRef.current;
-    if (!track || track.clientWidth === 0) return;
-    const page = Math.round(track.scrollLeft / track.clientWidth);
-    setActivePage(Math.max(0, Math.min(page, pageCount - 1)));
+  const go = (dir: 1 | -1) => {
+    setActive((prev) => Math.max(0, Math.min(prev + dir, items.length - 1)));
   };
 
   return (
-    <div className="relative">
-      <div
-        ref={trackRef}
-        onScroll={handleScroll}
-        className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-      >
-        {items.map((item, index) => (
-          <div
-            key={index}
-            className="w-[80%] shrink-0 snap-center sm:w-[45%] md:w-[32%] lg:w-[23%]"
-          >
-            {/* Marco estilo iPhone */}
-            <div className="relative mx-auto aspect-[9/19.5] w-full max-w-[280px] rounded-[2.4rem] border-[6px] border-negro bg-negro p-1.5 shadow-lg ring-1 ring-cobre/20 sm:max-w-[240px]">
-              {/* Botones laterales */}
-              <span className="absolute -left-[7px] top-[22%] h-6 w-[6px] rounded-full bg-negro" />
-              <span className="absolute -left-[7px] top-[30%] h-10 w-[6px] rounded-full bg-negro" />
-              <span className="absolute -right-[7px] top-[26%] h-14 w-[6px] rounded-full bg-negro" />
+    <div className="w-full">
+      <div className="overflow-hidden">
+        <div
+          ref={trackRef}
+          className="flex gap-6 pb-2 transition-transform duration-500 ease-out"
+          style={{ transform: `translateX(-${offset}px)` }}
+        >
+          {items.map((item, index) => (
+            <div key={index} className="w-[80%] shrink-0 sm:w-[45%] md:w-[32%] lg:w-[23%]">
+              {/* Marco estilo iPhone */}
+              <div className="relative mx-auto aspect-[9/19.5] w-full max-w-[280px] rounded-[2.4rem] border-[6px] border-negro bg-negro p-1.5 shadow-lg ring-1 ring-cobre/20 sm:max-w-[240px]">
+                {/* Botones laterales */}
+                <span className="absolute -left-[7px] top-[22%] h-6 w-[6px] rounded-full bg-negro" />
+                <span className="absolute -left-[7px] top-[30%] h-10 w-[6px] rounded-full bg-negro" />
+                <span className="absolute -right-[7px] top-[26%] h-14 w-[6px] rounded-full bg-negro" />
 
-              <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-[1.8rem] bg-negro">
-                {/* Dynamic island */}
-                <div className="absolute left-1/2 top-2 z-10 h-5 w-24 -translate-x-1/2 rounded-full bg-negro ring-1 ring-blanco/10" />
+                <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-[1.8rem] bg-negro">
+                  {/* Dynamic island */}
+                  <div className="absolute left-1/2 top-2 z-10 h-5 w-24 -translate-x-1/2 rounded-full bg-negro ring-1 ring-blanco/10" />
 
-                {item.src ? (
-                  <ReelVideo src={item.src} />
-                ) : (
-                  <>
-                    <span className="flex h-14 w-14 items-center justify-center rounded-full border border-cobre/50">
-                      <Play className="h-6 w-6 text-cobre" />
-                    </span>
-                    <span className="mt-4 px-4 text-center text-[11px] uppercase tracking-widest text-blanco/50">
-                      Video próximamente
-                    </span>
-                  </>
-                )}
+                  {item.src ? (
+                    <ReelVideo src={item.src} />
+                  ) : (
+                    <>
+                      <span className="flex h-14 w-14 items-center justify-center rounded-full border border-cobre/50">
+                        <Play className="h-6 w-6 text-cobre" />
+                      </span>
+                      <span className="mt-4 px-4 text-center text-[11px] uppercase tracking-widest text-blanco/50">
+                        Video próximamente
+                      </span>
+                    </>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-
-      <button
-        type="button"
-        aria-label="Página anterior"
-        onClick={() => scrollToPage(activePage - 1)}
-        className="absolute left-0 top-[38%] hidden h-10 w-10 -translate-x-4 items-center justify-center rounded-full border border-cobre/40 bg-blanco text-negro shadow-sm transition hover:bg-crema sm:flex"
-      >
-        <ChevronLeft className="h-5 w-5" />
-      </button>
-      <button
-        type="button"
-        aria-label="Página siguiente"
-        onClick={() => scrollToPage(activePage + 1)}
-        className="absolute right-0 top-[38%] hidden h-10 w-10 translate-x-4 items-center justify-center rounded-full border border-cobre/40 bg-blanco text-negro shadow-sm transition hover:bg-crema sm:flex"
-      >
-        <ChevronRight className="h-5 w-5" />
-      </button>
-
-      {pageCount > 1 && (
-        <div className="mt-5 flex justify-center gap-2">
-          {Array.from({ length: pageCount }).map((_, index) => (
-            <button
-              key={index}
-              type="button"
-              aria-label={`Ir a la página ${index + 1}`}
-              onClick={() => scrollToPage(index)}
-              className={`h-2 rounded-full transition-all ${
-                activePage === index ? "w-6 bg-cobre" : "w-2 bg-cobre/30"
-              }`}
-            />
           ))}
         </div>
-      )}
+      </div>
+
+      <div className="mt-6 flex items-center justify-center gap-4">
+        <button
+          type="button"
+          aria-label="Video anterior"
+          onClick={() => go(-1)}
+          disabled={active === 0}
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-cobre/40 bg-blanco text-negro shadow-sm transition hover:bg-crema disabled:opacity-30 disabled:hover:bg-blanco sm:h-10 sm:w-10"
+        >
+          <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+        </button>
+
+        {items.length > 1 && (
+          <div className="flex gap-2">
+            {items.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                aria-label={`Ir al video ${index + 1}`}
+                onClick={() => setActive(index)}
+                className={`h-2 rounded-full transition-all ${
+                  active === index ? "w-6 bg-cobre" : "w-2 bg-cobre/30"
+                }`}
+              />
+            ))}
+          </div>
+        )}
+
+        <button
+          type="button"
+          aria-label="Video siguiente"
+          onClick={() => go(1)}
+          disabled={active === items.length - 1}
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-cobre/40 bg-blanco text-negro shadow-sm transition hover:bg-crema disabled:opacity-30 disabled:hover:bg-blanco sm:h-10 sm:w-10"
+        >
+          <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
+        </button>
+      </div>
     </div>
   );
 }
