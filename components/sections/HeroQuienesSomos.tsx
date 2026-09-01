@@ -45,7 +45,7 @@ export default function HeroQuienesSomos() {
                 alt="Dúa"
                 fill
                 sizes="(min-width: 640px) 672px, 100vw"
-                className="object-cover"
+                className="object-cover object-top"
                 priority
               />
             </div>
@@ -55,7 +55,7 @@ export default function HeroQuienesSomos() {
                 alt="Dúa"
                 fill
                 sizes="(min-width: 640px) 672px, 100vw"
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
           </div>
