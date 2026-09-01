@@ -112,7 +112,7 @@ export function VideoCarousel({ items }: { items: VideoItem[] }) {
                 <span className="absolute -left-[7px] top-[30%] h-10 w-[6px] rounded-full bg-negro" />
                 <span className="absolute -right-[7px] top-[26%] h-14 w-[6px] rounded-full bg-negro" />
 
-                <div className="absolute inset-1.5 flex flex-col items-center justify-center overflow-hidden rounded-[1.8rem] bg-negro [-webkit-clip-path:inset(0_round_1.8rem)] [clip-path:inset(0_round_1.8rem)]">
+                <div className="absolute inset-1.5 flex flex-col items-center justify-center overflow-hidden rounded-[1rem] bg-negro [-webkit-clip-path:inset(0_round_1rem)] [clip-path:inset(0_round_1rem)]">
                   {/* Dynamic island */}
                   <div className="absolute left-1/2 top-2 z-10 h-5 w-24 -translate-x-1/2 rounded-full bg-negro ring-1 ring-blanco/10" />
 
@@ -131,10 +131,10 @@ export function VideoCarousel({ items }: { items: VideoItem[] }) {
 
                   {/* Tapa de esquinas: cubre lo que el video no recorta en Safari/iOS,
                       que a veces ignora overflow-hidden y clip-path en <video> */}
-                  <div className="pointer-events-none absolute left-0 top-0 h-[1.8rem] w-[1.8rem] rounded-br-[1.8rem] bg-negro" />
-                  <div className="pointer-events-none absolute right-0 top-0 h-[1.8rem] w-[1.8rem] rounded-bl-[1.8rem] bg-negro" />
-                  <div className="pointer-events-none absolute bottom-0 left-0 h-[1.8rem] w-[1.8rem] rounded-tr-[1.8rem] bg-negro" />
-                  <div className="pointer-events-none absolute bottom-0 right-0 h-[1.8rem] w-[1.8rem] rounded-tl-[1.8rem] bg-negro" />
+                  <div className="pointer-events-none absolute left-0 top-0 h-[1rem] w-[1rem] rounded-br-[1rem] bg-negro" />
+                  <div className="pointer-events-none absolute right-0 top-0 h-[1rem] w-[1rem] rounded-bl-[1rem] bg-negro" />
+                  <div className="pointer-events-none absolute bottom-0 left-0 h-[1rem] w-[1rem] rounded-tr-[1rem] bg-negro" />
+                  <div className="pointer-events-none absolute bottom-0 right-0 h-[1rem] w-[1rem] rounded-tl-[1rem] bg-negro" />
                 </div>
               </div>
             </div>
