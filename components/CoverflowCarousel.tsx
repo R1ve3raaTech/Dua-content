@@ -53,7 +53,7 @@ function CoverflowMedia({
           muted={muted}
           loop
           playsInline
-          preload={isActive ? "auto" : "none"}
+          preload="auto"
           className="h-full w-full object-cover"
         />
         {isActive && (
