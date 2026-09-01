@@ -26,7 +26,7 @@ export default function Resultados() {
           <div className="mt-6 h-px w-16 bg-cobre" />
           <p className="mt-6 max-w-2xl text-negro/70">
             Una muestra del contenido que hemos creado: campañas, sesiones y
-            piezas entregadas a marcas y clientas.
+            piezas entregadas a marcas y clientes.
           </p>
         </Reveal>
 
