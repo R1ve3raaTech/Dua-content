@@ -112,7 +112,7 @@ export function VideoCarousel({ items }: { items: VideoItem[] }) {
                 <span className="absolute -left-[7px] top-[30%] h-10 w-[6px] rounded-full bg-negro" />
                 <span className="absolute -right-[7px] top-[26%] h-14 w-[6px] rounded-full bg-negro" />
 
-                <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-[1.8rem] bg-negro [-webkit-mask-image:-webkit-radial-gradient(white,black)] [mask-image:radial-gradient(white,black)]">
+                <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-[1.8rem] bg-negro [-webkit-clip-path:inset(0_round_1.8rem)] [clip-path:inset(0_round_1.8rem)]">
                   {/* Dynamic island */}
                   <div className="absolute left-1/2 top-2 z-10 h-5 w-24 -translate-x-1/2 rounded-full bg-negro ring-1 ring-blanco/10" />
 
