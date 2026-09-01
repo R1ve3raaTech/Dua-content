@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 
 export type ReviewItem = {
@@ -12,10 +13,11 @@ export type ReviewItem = {
 function Avatar({ nombre, foto }: { nombre: string; foto?: string }) {
   if (foto) {
     return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
+      <Image
         src={foto}
         alt={nombre}
+        width={80}
+        height={80}
         className="h-20 w-20 rounded-full object-cover"
       />
     );

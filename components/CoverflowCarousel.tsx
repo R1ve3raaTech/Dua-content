@@ -4,6 +4,8 @@ import { useEffect, useRef, useState, type MouseEvent } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Volume2, VolumeX } from "lucide-react";
 
+import { posterDeVideo } from "@/lib/utils";
+
 export type CoverflowItem = {
   src: string;
   alt: string;
@@ -47,9 +49,11 @@ function CoverflowMedia({
         <video
           ref={videoRef}
           src={item.src}
+          poster={posterDeVideo(item.src)}
           muted={muted}
           loop
           playsInline
+          preload={isActive ? "auto" : "none"}
           className="h-full w-full object-cover"
         />
         {isActive && (
@@ -75,7 +79,7 @@ function CoverflowMedia({
       src={item.src}
       alt={item.alt}
       fill
-      sizes="(min-width: 1024px) 293px, (min-width: 640px) 191px, 146px"
+      sizes="(min-width: 1024px) 293px, (min-width: 640px) 191px, 180px"
       className="object-cover"
       priority={priority}
     />
@@ -128,7 +132,7 @@ export function CoverflowCarousel({ items }: { items: CoverflowItem[] }) {
 
   return (
     <div className="w-full">
-      <div className="relative h-[260px] overflow-hidden sm:h-[340px] md:h-[440px] lg:h-[520px]">
+      <div className="relative h-[320px] overflow-hidden sm:h-[340px] md:h-[440px] lg:h-[520px]">
         {items.map((item, index) => {
           // Desplazamiento respecto a la tarjeta activa, tomando el camino más corto del loop
           let offset = index - active;

@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { Reveal } from "@/components/motion/Reveal";
 
 const categoriasHerramientas = [
@@ -119,13 +120,17 @@ export default function NuestroEquipo() {
                     className="flex min-h-[160px] overflow-hidden rounded-xl border border-cobre/20 bg-crema transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-md"
                   >
                     {/* Marco para foto de la herramienta; placeholder mientras no hay foto real */}
-                    <div className="flex w-2/5 shrink-0 items-center justify-center border-r border-cobre/20 bg-blanco">
+                    <div className="relative flex w-2/5 shrink-0 items-center justify-center border-r border-cobre/20 bg-crema">
                       {item.imagen ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
+                        // Las fotos de producto vienen con fondo blanco; el
+                        // multiply lo funde con el crema para que los equipos
+                        // blancos (iPhone, iPad) no se vean "en blanco".
+                        <Image
                           src={item.imagen}
                           alt={item.nombre}
-                          className="h-full w-full object-contain p-4"
+                          fill
+                          sizes="200px"
+                          className="object-contain p-4 mix-blend-multiply"
                         />
                       ) : (
                         <span className="px-2 text-center text-xs uppercase tracking-widest text-negro/40">

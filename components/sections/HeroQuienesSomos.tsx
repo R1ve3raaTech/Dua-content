@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { RevealGroup, RevealItem } from "@/components/motion/Reveal";
 
 export default function HeroQuienesSomos() {
@@ -38,20 +39,23 @@ export default function HeroQuienesSomos() {
 
         <RevealItem className="mt-12 w-full max-w-2xl">
           <div className="flex flex-col overflow-hidden rounded-lg border border-cobre/30">
-            <div className="aspect-[3/2] w-full">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+            <div className="relative aspect-[3/2] w-full">
+              <Image
                 src="/quienes-somos/foto-1.jpg"
                 alt="Dúa"
-                className="h-full w-full object-cover"
+                fill
+                sizes="(min-width: 640px) 672px, 100vw"
+                className="object-cover"
+                priority
               />
             </div>
-            <div className="aspect-[3/2] w-full">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+            <div className="relative aspect-[3/2] w-full">
+              <Image
                 src="/quienes-somos/foto-2.jpg"
                 alt="Dúa"
-                className="h-full w-full object-cover"
+                fill
+                sizes="(min-width: 640px) 672px, 100vw"
+                className="object-cover"
               />
             </div>
           </div>
