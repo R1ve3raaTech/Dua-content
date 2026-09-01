@@ -40,7 +40,7 @@ function ReelVideo({ src }: { src: string }) {
         poster={posterDeVideo(src)}
         playsInline
         muted={muted}
-        preload="none"
+        preload="auto"
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
         className="absolute inset-0 h-full w-full object-cover"
