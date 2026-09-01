@@ -4,6 +4,10 @@
 
 @layer base {
   :root {
+    /* Evita que Android/Chrome fuerce un tema oscuro automático sobre
+       la paleta clara (convierte el crema/cobre en tonos café turbios) */
+    color-scheme: light;
+
     /* Tokens de shadcn/ui mapeados a la paleta Dúa */
     --background: #f3e7d0; /* crema */
     --foreground: #1c1c1c; /* negro */

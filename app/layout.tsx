@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
@@ -22,6 +22,10 @@ export const metadata: Metadata = {
   title: "Dúa | Creación de Contenido",
   description:
     "Conectamos ideas, marcas y personas. Contenido auténtico para marcas y eventos.",
+};
+
+export const viewport: Viewport = {
+  colorScheme: "light",
 };
 
 export default function RootLayout({
