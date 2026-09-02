@@ -32,16 +32,11 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Con el menú mobile abierto el header también pasa a blanco para no cortar el panel
-  const solid = scrolled || menuOpen;
-
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b transition-[background-color,border-color,box-shadow] duration-300",
-        solid
-          ? "border-cobre/30 bg-blanco shadow-sm"
-          : "border-transparent bg-crema"
+        "sticky top-0 z-50 border-b border-cobre/30 bg-blanco transition-shadow duration-300",
+        scrolled || menuOpen ? "shadow-sm" : ""
       )}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">

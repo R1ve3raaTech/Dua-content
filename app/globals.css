@@ -65,7 +65,7 @@ body {
 
 /* Scrollbar con la paleta de la marca (Firefox) */
 html {
-  scrollbar-color: #c58a58 #f3e7d0; /* thumb cobre, track crema */
+  scrollbar-color: #c58a58 #ffffff; /* thumb cobre, track blanco */
   scrollbar-width: thin;
 }
 
@@ -76,13 +76,13 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f3e7d0; /* crema */
+  background: #ffffff; /* blanco */
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #c58a58; /* cobre */
   border-radius: 9999px;
-  border: 3px solid #f3e7d0; /* crea el "grosor" flotante sobre el track */
+  border: 3px solid #ffffff; /* crea el "grosor" flotante sobre el track */
 }
 
 ::-webkit-scrollbar-thumb:hover {

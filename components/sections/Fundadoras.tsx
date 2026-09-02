@@ -28,10 +28,10 @@ const fundadoras: Fundadora[] = [
 
 export default function Fundadoras() {
   return (
-    <section className="bg-crema px-4 py-20 sm:px-6 md:py-28 lg:px-8">
+    <section className="bg-negro px-4 py-20 sm:px-6 md:py-28 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <h2 className="text-center text-3xl font-semibold text-negro sm:text-4xl md:text-5xl">
+          <h2 className="text-center text-3xl font-semibold text-blanco sm:text-4xl md:text-5xl">
             Las hermanas detrás de Dúa
           </h2>
           <div className="mx-auto mt-6 h-px w-16 bg-cobre" />
@@ -65,13 +65,13 @@ export default function Fundadoras() {
                 </div>
               </RevealItem>
               <RevealItem className="w-full text-center md:w-1/2 md:text-left">
-                <h3 className="text-2xl font-semibold text-negro sm:text-3xl">
+                <h3 className="text-2xl font-semibold text-blanco sm:text-3xl">
                   {fundadora.nombre}
                 </h3>
                 <p className="mt-1 text-sm uppercase tracking-widest text-cobre">
                   {fundadora.rol}
                 </p>
-                <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-negro/75 md:mx-0 md:text-lg">
+                <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-blanco/75 md:mx-0 md:text-lg">
                   {fundadora.descripcion}
                 </p>
               </RevealItem>
