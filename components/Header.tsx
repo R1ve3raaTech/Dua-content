@@ -35,7 +35,7 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b border-cobre/30 bg-blanco transition-shadow duration-300",
+        "sticky top-0 z-50 border-b border-cobre/30 bg-blanco transition-shadow duration-300 [color-scheme:light]",
         scrolled || menuOpen ? "shadow-sm" : ""
       )}
     >
@@ -49,7 +49,7 @@ export default function Header() {
             className="h-10 w-10 rounded-full"
             priority
           />
-          <span className="font-serif text-2xl font-bold text-cafe">Dúa</span>
+          <span className="font-serif text-2xl font-bold text-negro">Dúa</span>
         </Link>
 
         {/* Menú desktop */}
