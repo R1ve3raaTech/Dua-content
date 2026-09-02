@@ -176,8 +176,8 @@ export function CoverflowCarousel({ items }: { items: CoverflowItem[] }) {
         })}
 
         {/* Fundido hacia el fondo en los bordes laterales */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-8 bg-gradient-to-r from-blanco to-transparent sm:w-16 md:w-24" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-8 bg-gradient-to-l from-blanco to-transparent sm:w-16 md:w-24" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-8 bg-gradient-to-r from-black to-transparent sm:w-16 md:w-24" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-8 bg-gradient-to-l from-black to-transparent sm:w-16 md:w-24" />
       </div>
 
       <div className="mt-6 flex justify-center gap-3 sm:mt-8 sm:gap-4">

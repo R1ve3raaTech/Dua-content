@@ -77,15 +77,15 @@ export default function NuestroEquipo() {
   return (
     <section
       id="equipo"
-      className="min-h-screen bg-blanco px-4 py-20 sm:px-6 md:py-28 lg:px-8"
+      className="min-h-screen bg-black px-4 py-20 sm:px-6 md:py-28 lg:px-8"
     >
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <h2 className="text-3xl font-semibold text-negro sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-semibold text-blanco sm:text-4xl md:text-5xl">
             Nuestro equipo de trabajo
           </h2>
           <div className="mt-6 h-px w-16 bg-cobre" />
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-negro/75 md:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-blanco/75 md:text-lg">
             Detrás de cada video hay un equipo que se mueve al ritmo de cada
             historia: planeamos, grabamos y editamos con la misma dedicación
             en cada proyecto, sin importar su tamaño.
@@ -95,7 +95,7 @@ export default function NuestroEquipo() {
         {/* Equipo y herramientas de trabajo */}
         <Reveal>
           <div className="mt-14 max-w-2xl">
-            <p className="text-base leading-relaxed text-negro/75 md:text-lg">
+            <p className="text-base leading-relaxed text-blanco/75 md:text-lg">
               Cada proyecto es diferente, por eso trabajamos con herramientas
               versátiles que nos permiten adaptarnos a distintos espacios,
               estilos y necesidades de producción.
@@ -109,7 +109,7 @@ export default function NuestroEquipo() {
         <div className="mt-10 space-y-14">
           {categoriasHerramientas.map((grupo) => (
             <Reveal key={grupo.categoria}>
-              <h4 className="text-2xl font-semibold text-negro">
+              <h4 className="text-2xl font-semibold text-blanco">
                 {grupo.categoria}
               </h4>
               <div className="mt-3 h-px w-12 bg-cobre" />
@@ -158,19 +158,19 @@ export default function NuestroEquipo() {
               Nos adaptamos a tu espacio
             </p>
             <div className="mt-6 space-y-4">
-              <p className="text-base leading-relaxed text-negro/75 md:text-lg">
+              <p className="text-base leading-relaxed text-blanco/75 md:text-lg">
                 Podemos realizar la grabación en la locación que prefiera el
                 cliente: negocio, oficina, tienda, estudio, espacio exterior u
                 otra ubicación acordada previamente.
               </p>
-              <p className="text-base leading-relaxed text-negro/75 md:text-lg">
+              <p className="text-base leading-relaxed text-blanco/75 md:text-lg">
                 Si el cliente no cuenta con un espacio adecuado o busca una
                 estética más limpia y minimalista, podemos adaptar un set de
                 grabación utilizando nuestro fondo blanco, creando un
                 escenario sencillo y profesional para desarrollar el
                 contenido.
               </p>
-              <p className="text-base leading-relaxed text-negro/75 md:text-lg">
+              <p className="text-base leading-relaxed text-blanco/75 md:text-lg">
                 La elección de la locación y el montaje se define previamente
                 según la marca, el concepto y el tipo de contenido que vamos a
                 crear.

@@ -48,7 +48,7 @@ export default function Clientes() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <h2 className="text-3xl font-semibold text-blanco sm:text-4xl md:text-5xl">
-            Clientes / trabajos / recomendaciones
+            Clientes
           </h2>
           <div className="mt-6 h-px w-16 bg-cobre" />
         </Reveal>

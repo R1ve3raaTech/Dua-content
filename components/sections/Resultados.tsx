@@ -16,22 +16,28 @@ export default function Resultados() {
   return (
     <section
       id="resultados"
-      className="min-h-screen bg-blanco px-4 py-20 sm:px-6 md:py-28 lg:px-8"
+      className="min-h-screen bg-black px-4 py-20 sm:px-6 md:py-28 lg:px-8"
     >
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <h2 className="text-3xl font-semibold text-negro sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-semibold text-blanco sm:text-4xl md:text-5xl">
             Resultados
           </h2>
           <div className="mt-6 h-px w-16 bg-cobre" />
-          <p className="mt-6 max-w-2xl text-negro/70">
+          <p className="mt-6 max-w-2xl text-blanco/70">
             Una muestra del contenido que hemos creado: campañas, sesiones y
             piezas entregadas a marcas y clientes.
           </p>
         </Reveal>
 
         <Reveal>
-          <div className="mt-14">
+          <div className="relative mt-14">
+            {/* Resplandor gris difuminado para que el carrusel resalte
+                contra el fondo negro */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_65%_75%_at_50%_50%,_rgba(120,120,120,0.35),_transparent_70%)]"
+            />
             <CoverflowCarousel items={resultados} />
           </div>
         </Reveal>
