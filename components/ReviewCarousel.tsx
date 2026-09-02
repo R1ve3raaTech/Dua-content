@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 
 export type ReviewItem = {
   nombre: string;
-  comentario: string;
+  comentario: string | string[];
   foto?: string;
 };
 
@@ -27,6 +27,63 @@ function Avatar({ nombre, foto }: { nombre: string; foto?: string }) {
     <span className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-cobre/15 text-2xl font-semibold text-cobre">
       {inicial}
     </span>
+  );
+}
+
+// Cuando una reseña tiene varios comentarios, se muestran de a uno con un
+// mini carrusel propio (flechas + puntos) dentro de la misma tarjeta.
+function ReviewComment({ comentario }: { comentario: string | string[] }) {
+  const comentarios = Array.isArray(comentario) ? comentario : [comentario];
+  const [index, setIndex] = useState(0);
+  const multiple = comentarios.length > 1;
+
+  const go = (dir: 1 | -1, e: MouseEvent) => {
+    e.stopPropagation();
+    setIndex((prev) => (prev + dir + comentarios.length) % comentarios.length);
+  };
+
+  return (
+    <div className="mt-4 flex flex-1 flex-col">
+      <p className="flex-1 text-sm leading-relaxed text-negro/80">
+        {comentarios[index]}
+      </p>
+      {multiple && (
+        <div className="mt-3 flex items-center justify-center gap-2">
+          <button
+            type="button"
+            aria-label="Comentario anterior"
+            onClick={(e) => go(-1, e)}
+            className="flex h-6 w-6 items-center justify-center rounded-full text-cobre transition hover:bg-cobre/10"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+          <div className="flex gap-1.5">
+            {comentarios.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                aria-label={`Ir al comentario ${i + 1}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIndex(i);
+                }}
+                className={`h-1.5 rounded-full transition-all ${
+                  index === i ? "w-4 bg-cobre" : "w-1.5 bg-cobre/30"
+                }`}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            aria-label="Comentario siguiente"
+            onClick={(e) => go(1, e)}
+            className="flex h-6 w-6 items-center justify-center rounded-full text-cobre transition hover:bg-cobre/10"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -77,23 +134,21 @@ export function ReviewCarousel({ items }: { items: ReviewItem[] }) {
       <div
         ref={trackRef}
         onScroll={handleScroll}
-        className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="flex snap-x snap-mandatory items-start gap-6 overflow-x-auto scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {items.map((item, index) => (
           <div
             key={index}
             className="w-[85%] shrink-0 snap-center sm:w-[46%] lg:w-[31%]"
           >
-            <div className="flex h-full flex-col rounded-2xl border border-cobre/20 bg-crema p-6 shadow-sm">
+            <div className="flex h-full flex-col rounded-2xl border border-cobre/20 bg-blanco p-6 shadow-sm">
               <Quote className="h-8 w-8 fill-cobre/20 text-cobre" />
               <div className="mt-3 flex gap-1">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-cobre text-cobre" />
                 ))}
               </div>
-              <p className="mt-4 flex-1 text-sm leading-relaxed text-negro/80">
-                {item.comentario}
-              </p>
+              <ReviewComment comentario={item.comentario} />
               <div className="mt-6 flex items-center gap-3">
                 <Avatar nombre={item.nombre} foto={item.foto} />
                 <p className="text-sm font-semibold text-cobre">

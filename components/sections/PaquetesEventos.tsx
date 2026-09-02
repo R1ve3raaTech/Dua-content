@@ -210,19 +210,19 @@ export default function PaquetesEventos() {
   return (
     <section
       id="paquetes-eventos"
-      className="bg-crema px-4 py-20 sm:px-6 md:py-28 lg:px-8"
+      className="bg-black px-4 py-20 sm:px-6 md:py-28 lg:px-8"
     >
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <h2 className="text-3xl font-semibold text-negro sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-semibold text-blanco sm:text-4xl md:text-5xl">
             Paquetes para eventos
           </h2>
           <div className="mt-6 h-px w-16 bg-cobre" />
 
-          <p className="mt-8 font-serif text-xl text-negro sm:text-2xl">
+          <p className="mt-8 font-serif text-xl text-blanco sm:text-2xl">
             ¿Necesitas algo diferente?
           </p>
-          <p className="mt-3 max-w-2xl text-base leading-relaxed text-negro/75 md:text-lg">
+          <p className="mt-3 max-w-2xl text-base leading-relaxed text-blanco/75 md:text-lg">
             Nuestros paquetes son una base, no una limitación. Podemos
             ajustar la cantidad de jornadas, horas de grabación, número de
             Reels y necesidades específicas de producción para crear una
@@ -234,13 +234,13 @@ export default function PaquetesEventos() {
           <p className="mt-14 text-xs font-semibold uppercase tracking-[0.2em] text-cobre">
             Eventos y momentos especiales
           </p>
-          <p className="mt-3 max-w-2xl text-base leading-relaxed text-negro/75 md:text-lg">
+          <p className="mt-3 max-w-2xl text-base leading-relaxed text-blanco/75 md:text-lg">
             Hay momentos que pasan una vez. Nosotras los convertimos en
             contenido que permanece. Creamos contenido vertical, natural y
             cercano para capturar los detalles, emociones y momentos que
             hacen especial cada celebración.
           </p>
-          <p className="mt-3 max-w-2xl text-base leading-relaxed text-negro/75 md:text-lg">
+          <p className="mt-3 max-w-2xl text-base leading-relaxed text-blanco/75 md:text-lg">
             Todas las coberturas pueden personalizarse según la duración,
             ubicación y necesidades de cada evento.
           </p>
@@ -292,7 +292,7 @@ export default function PaquetesEventos() {
         {/* Información importante */}
         <Reveal>
           <div className="mt-20">
-            <h3 className="text-2xl font-semibold text-negro sm:text-3xl">
+            <h3 className="text-2xl font-semibold text-blanco sm:text-3xl">
               Información importante
             </h3>
             <div className="mt-6 h-px w-16 bg-cobre" />
@@ -307,7 +307,7 @@ export default function PaquetesEventos() {
                     {bloque.parrafos.map((parrafo) => (
                       <p
                         key={parrafo}
-                        className="text-sm leading-relaxed text-negro/75"
+                        className="text-sm leading-relaxed text-blanco/75"
                       >
                         {parrafo}
                       </p>

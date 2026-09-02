@@ -106,13 +106,13 @@ export function VideoCarousel({ items }: { items: VideoItem[] }) {
           {items.map((item, index) => (
             <div key={index} className="w-[80%] shrink-0 sm:w-[45%] md:w-[32%] lg:w-[23%]">
               {/* Marco estilo iPhone */}
-              <div className="relative mx-auto aspect-[9/19.5] w-full max-w-[280px] rounded-[2.4rem] border-[6px] border-negro bg-negro shadow-lg ring-1 ring-cobre/20 sm:max-w-[240px]">
+              <div className="relative mx-auto aspect-[9/19.5] w-full max-w-[280px] rounded-[1.4rem] border-[3px] border-negro bg-negro shadow-lg ring-1 ring-cobre/20 sm:max-w-[240px]">
                 {/* Botones laterales */}
-                <span className="absolute -left-[7px] top-[22%] h-6 w-[6px] rounded-full bg-negro" />
-                <span className="absolute -left-[7px] top-[30%] h-10 w-[6px] rounded-full bg-negro" />
-                <span className="absolute -right-[7px] top-[26%] h-14 w-[6px] rounded-full bg-negro" />
+                <span className="absolute -left-[4px] top-[22%] h-6 w-[3px] rounded-full bg-negro" />
+                <span className="absolute -left-[4px] top-[30%] h-10 w-[3px] rounded-full bg-negro" />
+                <span className="absolute -right-[4px] top-[26%] h-14 w-[3px] rounded-full bg-negro" />
 
-                <div className="absolute inset-1.5 flex flex-col items-center justify-center overflow-hidden rounded-[1rem] bg-negro [-webkit-clip-path:inset(0_round_1rem)] [clip-path:inset(0_round_1rem)]">
+                <div className="absolute inset-1 flex flex-col items-center justify-center overflow-hidden rounded-[1.1rem] bg-negro [-webkit-clip-path:inset(0_round_1.1rem)] [clip-path:inset(0_round_1.1rem)]">
                   {/* Dynamic island */}
                   <div className="absolute left-1/2 top-2 z-10 h-5 w-24 -translate-x-1/2 rounded-full bg-negro ring-1 ring-blanco/10" />
 
@@ -131,10 +131,10 @@ export function VideoCarousel({ items }: { items: VideoItem[] }) {
 
                   {/* Tapa de esquinas: cubre lo que el video no recorta en Safari/iOS,
                       que a veces ignora overflow-hidden y clip-path en <video> */}
-                  <div className="pointer-events-none absolute left-0 top-0 h-[1rem] w-[1rem] rounded-br-[1rem] bg-negro" />
-                  <div className="pointer-events-none absolute right-0 top-0 h-[1rem] w-[1rem] rounded-bl-[1rem] bg-negro" />
-                  <div className="pointer-events-none absolute bottom-0 left-0 h-[1rem] w-[1rem] rounded-tr-[1rem] bg-negro" />
-                  <div className="pointer-events-none absolute bottom-0 right-0 h-[1rem] w-[1rem] rounded-tl-[1rem] bg-negro" />
+                  <div className="pointer-events-none absolute left-0 top-0 h-[1.1rem] w-[1.1rem] backdrop-blur-md [-webkit-backdrop-filter:blur(8px)]" />
+                  <div className="pointer-events-none absolute right-0 top-0 h-[1.1rem] w-[1.1rem] backdrop-blur-md [-webkit-backdrop-filter:blur(8px)]" />
+                  <div className="pointer-events-none absolute bottom-0 left-0 h-[1.1rem] w-[1.1rem] backdrop-blur-md [-webkit-backdrop-filter:blur(8px)]" />
+                  <div className="pointer-events-none absolute bottom-0 right-0 h-[1.1rem] w-[1.1rem] backdrop-blur-md [-webkit-backdrop-filter:blur(8px)]" />
                 </div>
               </div>
             </div>
