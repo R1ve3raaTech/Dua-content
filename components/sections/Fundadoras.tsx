@@ -28,7 +28,7 @@ const fundadoras: Fundadora[] = [
 
 export default function Fundadoras() {
   return (
-    <section className="bg-negro px-4 py-20 sm:px-6 md:py-28 lg:px-8">
+    <section className="bg-black px-4 py-20 sm:px-6 md:py-28 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <h2 className="text-center text-3xl font-semibold text-blanco sm:text-4xl md:text-5xl">

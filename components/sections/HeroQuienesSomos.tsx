@@ -5,7 +5,7 @@ export default function HeroQuienesSomos() {
   return (
     <section
       id="quienes-somos"
-      className="flex min-h-screen items-start bg-negro px-4 pb-20 pt-24 sm:px-6 sm:pt-28 md:pt-32 lg:px-8"
+      className="flex min-h-screen items-start bg-black px-4 pb-20 pt-24 sm:px-6 sm:pt-28 md:pt-32 lg:px-8"
     >
       <RevealGroup
         className="mx-auto flex w-full max-w-4xl flex-col items-center text-center"
