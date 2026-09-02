@@ -79,7 +79,13 @@ const paquetes: Paquete[] = [
   },
 ];
 
-function PaqueteCard({ paquete }: { paquete: Paquete }) {
+function PaqueteCard({
+  paquete,
+  fondoFrenteBlanco,
+}: {
+  paquete: Paquete;
+  fondoFrenteBlanco?: boolean;
+}) {
   return (
     <FlipCard
       badge={
@@ -90,7 +96,11 @@ function PaqueteCard({ paquete }: { paquete: Paquete }) {
         ) : undefined
       }
       front={
-        <div className="flex h-full flex-col items-center justify-center rounded-xl border border-cobre/25 bg-crema p-8 text-center">
+        <div
+          className={`flex h-full flex-col items-center justify-center rounded-xl border border-cobre/25 p-8 text-center ${
+            fondoFrenteBlanco ? "bg-blanco" : "bg-crema"
+          }`}
+        >
           <h3 className="font-serif text-2xl text-negro sm:text-3xl">
             {paquete.nombre}
           </h3>
@@ -159,9 +169,9 @@ export default function PaquetesMarcas() {
           className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4"
           stagger={0.12}
         >
-          {paquetes.map((paquete) => (
+          {paquetes.map((paquete, index) => (
             <RevealItem key={paquete.nombre}>
-              <PaqueteCard paquete={paquete} />
+              <PaqueteCard paquete={paquete} fondoFrenteBlanco={index === 0} />
             </RevealItem>
           ))}
         </RevealGroup>
