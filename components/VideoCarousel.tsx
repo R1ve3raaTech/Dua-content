@@ -106,11 +106,11 @@ export function VideoCarousel({ items }: { items: VideoItem[] }) {
           {items.map((item, index) => (
             <div key={index} className="w-[80%] shrink-0 sm:w-[45%] md:w-[32%] lg:w-[23%]">
               {/* Marco estilo iPhone */}
-              <div className="relative mx-auto aspect-[9/19.5] w-full max-w-[280px] rounded-[1.4rem] border-[3px] border-negro bg-negro shadow-lg ring-1 ring-cobre/20 sm:max-w-[240px]">
+              <div className="relative mx-auto aspect-[9/19.5] w-full max-w-[280px] rounded-[1.4rem] border-[4px] border-negro bg-negro shadow-lg ring-1 ring-cobre/20 sm:max-w-[240px]">
                 {/* Botones laterales */}
-                <span className="absolute -left-[4px] top-[22%] h-6 w-[3px] rounded-full bg-negro" />
-                <span className="absolute -left-[4px] top-[30%] h-10 w-[3px] rounded-full bg-negro" />
-                <span className="absolute -right-[4px] top-[26%] h-14 w-[3px] rounded-full bg-negro" />
+                <span className="absolute -left-[8px] top-[22%] h-6 w-[3px] rounded-full bg-negro" />
+                <span className="absolute -left-[8px] top-[30%] h-10 w-[3px] rounded-full bg-negro" />
+                <span className="absolute -right-[8px] top-[26%] h-14 w-[3px] rounded-full bg-negro" />
 
                 <div className="absolute inset-1 flex flex-col items-center justify-center overflow-hidden rounded-[1.1rem] bg-negro [-webkit-clip-path:inset(0_round_1.1rem)] [clip-path:inset(0_round_1.1rem)]">
                   {/* Dynamic island */}
@@ -162,7 +162,7 @@ export function VideoCarousel({ items }: { items: VideoItem[] }) {
                 aria-label={`Ir al video ${index + 1}`}
                 onClick={() => setActive(index)}
                 className={`h-2 rounded-full transition-all ${
-                  active === index ? "w-6 bg-cobre" : "w-2 bg-cobre/30"
+                  active === index ? "w-6 bg-blanco" : "w-2 bg-blanco/30"
                 }`}
               />
             ))}
