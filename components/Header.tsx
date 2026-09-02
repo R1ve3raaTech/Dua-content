@@ -44,9 +44,9 @@ export default function Header() {
           <Image
             src="/logo/dua-mark-navbar.png"
             alt="Dúa"
-            width={40}
-            height={40}
-            className="h-10 w-10 rounded-full"
+            width={36}
+            height={64}
+            className="h-16 w-9 rounded-md object-cover"
             priority
           />
           <span className="font-serif text-2xl font-bold text-negro">Dúa</span>

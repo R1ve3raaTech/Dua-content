@@ -94,9 +94,9 @@ export default function Footer() {
           <Image
             src="/logo/dua-mark-footer.png"
             alt="Dúa"
-            width={56}
-            height={56}
-            className="h-14 w-14 rounded-full"
+            width={48}
+            height={88}
+            className="h-[5.5rem] w-12 rounded-md object-cover"
           />
           <p className="mt-3 font-serif text-2xl font-bold text-negro">Dúa</p>
           <p className="mt-2 text-sm leading-relaxed text-negro/70">
