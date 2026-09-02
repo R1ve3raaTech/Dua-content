@@ -88,7 +88,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-cobre/30 bg-negro text-crema">
+    <footer className="border-t border-cobre/30 bg-blanco text-negro">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-12 sm:px-6 md:grid-cols-3 lg:px-8">
         <div>
           <Image
@@ -98,14 +98,14 @@ export default function Footer() {
             height={56}
             className="h-14 w-14 rounded-full"
           />
-          <p className="mt-3 font-serif text-2xl font-bold text-blanco">Dúa</p>
-          <p className="mt-2 text-sm leading-relaxed text-crema/70">
+          <p className="mt-3 font-serif text-2xl font-bold text-negro">Dúa</p>
+          <p className="mt-2 text-sm leading-relaxed text-negro/70">
             Conectamos ideas, marcas y personas.
           </p>
         </div>
 
         <div>
-          <h3 className="font-sans text-xs font-medium uppercase tracking-widest text-crema/60">
+          <h3 className="font-sans text-xs font-medium uppercase tracking-widest text-negro/60">
             Redes sociales
           </h3>
           <ul className="mt-4 flex flex-col gap-3">
@@ -115,7 +115,7 @@ export default function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-crema/80 transition-colors duration-200 hover:text-cobre"
+                  className="flex items-center gap-2 text-sm text-negro/80 transition-colors duration-200 hover:text-cobre"
                 >
                   <Icon className="h-5 w-5 text-cobre" />
                   {label}
@@ -126,17 +126,17 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="font-sans text-xs font-medium uppercase tracking-widest text-crema/60">
+          <h3 className="font-sans text-xs font-medium uppercase tracking-widest text-negro/60">
             Métodos de pago
           </h3>
-          <p className="mt-4 text-sm leading-relaxed text-crema/70">
+          <p className="mt-4 text-sm leading-relaxed text-negro/70">
             SINPE o transferencia bancaria.
           </p>
         </div>
       </div>
 
-      <div className="border-t border-crema/10">
-        <p className="mx-auto max-w-6xl px-4 py-6 text-xs text-crema/50 sm:px-6 lg:px-8">
+      <div className="border-t border-negro/10">
+        <p className="mx-auto max-w-6xl px-4 py-6 text-xs text-negro/50 sm:px-6 lg:px-8">
           © {new Date().getFullYear()} Dúa. Todos los derechos reservados.
         </p>
       </div>
