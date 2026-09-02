@@ -131,15 +131,15 @@ export default function PaquetesMarcas() {
   return (
     <section
       id="paquetes-marcas"
-      className="min-h-screen bg-blanco px-4 py-20 sm:px-6 md:py-28 lg:px-8"
+      className="min-h-screen bg-black px-4 py-20 sm:px-6 md:py-28 lg:px-8"
     >
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <h2 className="text-3xl font-semibold text-negro sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-semibold text-blanco sm:text-4xl md:text-5xl">
             Paquetes para marcas
           </h2>
           <div className="mt-6 h-px w-16 bg-cobre" />
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-negro/75 md:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-blanco/75 md:text-lg">
             Cada marca, negocio y celebración tiene una historia diferente.
             Por eso, nuestros paquetes funcionan como un punto de partida y
             pueden personalizarse según las necesidades, objetivos y tipo de
@@ -148,7 +148,7 @@ export default function PaquetesMarcas() {
           <p className="mt-8 text-xs font-semibold uppercase tracking-[0.2em] text-cobre">
             Marcas · Emprendimientos · Negocios
           </p>
-          <p className="mt-3 max-w-2xl text-base leading-relaxed text-negro/75 md:text-lg">
+          <p className="mt-3 max-w-2xl text-base leading-relaxed text-blanco/75 md:text-lg">
             Creamos contenido auténtico y estratégico para marcas que quieren
             comunicar mejor, conectar con su comunidad y mantener una
             presencia constante en redes sociales.

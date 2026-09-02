@@ -21,7 +21,9 @@ export function FlipCard({
 
   return (
     <div
-      className={`relative w-full [perspective:1500px] ${heightClassName}`}
+      className={`relative w-full rounded-xl [perspective:1500px] transition-shadow duration-700 ${
+        flipped ? "shadow-[0_0_55px_18px_rgba(255,255,255,0.45)]" : ""
+      } ${heightClassName}`}
       role="button"
       tabIndex={0}
       aria-pressed={flipped}
