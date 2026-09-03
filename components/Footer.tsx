@@ -129,9 +129,10 @@ export default function Footer() {
           <h3 className="font-sans text-xs font-medium uppercase tracking-widest text-negro/60">
             Métodos de pago
           </h3>
-          <p className="mt-4 text-sm leading-relaxed text-negro/70">
-            SINPE o transferencia bancaria.
-          </p>
+          <div className="mt-4 space-y-1 text-sm leading-relaxed text-negro/70">
+            <p>Sinpe Móvil</p>
+            <p>Transferencia bancaria</p>
+          </div>
         </div>
       </div>
 

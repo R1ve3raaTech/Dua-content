@@ -18,7 +18,7 @@ const resenas: ReviewItem[] = [
     foto: "/resenas/clienta-2.jpg",
   },
   {
-    nombre: "Rosé Skincenter",
+    nombre: "Rosé Skin Center",
     comentario: [
       "En definitiva recomendamos la creación de contenido con Dúa, porque no sólo van a tener un trabajo de calidad sino que están contratando a mujeres que de verdad les importa el emprendimiento y el éxito de éste 💖🫶🏼",
       "Los guiones, el material entregado, la dedicación en su trabajo se nota ✨👌🏼 y siempre están anuentes a escuchar nuestras propuestas. Asimismo, el solo hecho de grabar mini clips para que podamos subir a historias en las redes sociales es un detalle que se los agradecemos muchísimo.",
