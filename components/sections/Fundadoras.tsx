@@ -15,14 +15,14 @@ const fundadoras: Fundadora[] = [
     rol: "Co-fundadora de Dúa",
     imagen: "/fundadoras/melany.jpg",
     descripcion:
-      "Detrás de cada cámara hay una mirada, y la de Melany busca siempre el instante justo: esa mezcla de detalle y emoción que hace que un video se sienta real. Le apasiona la parte creativa de Dúa, desde la idea inicial hasta la edición final, y cree que la mejor forma de conectar con las personas es contando su historia con honestidad.",
+      "Melany es la mente creativa y organizativa detrás de cada proyecto. Disfruta transformar una idea en algo que realmente conecte, cuidando desde el concepto y los detalles creativos hasta la coordinación y logística que hacen posible cada producción. Su enfoque combina creatividad, orden y compromiso, para que cada cliente se sienta acompañado y pueda disfrutar del proceso con la tranquilidad de saber que cada detalle está siendo cuidado.",
   },
   {
     nombre: "Tiffany",
     rol: "Co-fundadora de Dúa",
     imagen: "/fundadoras/tiffany.jpg",
     descripcion:
-      "Tiffany es quien le da estructura y estrategia a cada proyecto de Dúa, cuidando que cada pieza de contenido no solo se vea bien, sino que también cumpla su propósito. Cercana y empática por naturaleza, disfruta escuchar la historia de cada marca y cada persona antes de empezar a grabar, porque para ella todo buen contenido nace de una buena conversación.",
+      "Tiffany es quien transforma cada objetivo en una idea lista para contar. Está detrás de la estrategia, los conceptos y guiones que dan dirección a cada proyecto y, además, es quien acompaña de cerca a nuestros clientes durante las grabaciones, guiándolos para que se sientan cómodos y auténticos frente a cámara. Su trabajo continúa en la edición, donde une cada detalle para convertir lo grabado en contenido con intención, personalidad y propósito.",
   },
 ];
 
